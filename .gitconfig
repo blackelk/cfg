@@ -1,0 +1,16 @@
+[user]
+	name = Constantine Parkhimovich
+	email = cparkhimovich@gmail.com
+[github]
+	user = blackelk
+
+[alias]
+    a = add
+    b = branch
+    c = commit
+    ch = checkout
+    d = diff
+    f = fetch
+    l = log
+    m = merge
+    s = status
