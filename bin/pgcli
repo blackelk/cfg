@@ -1,0 +1,2 @@
+#!/bin/bash
+~/venvs/pgcli/bin/pgcli $1 $2 --less-chatty --no-warn
