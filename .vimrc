@@ -4,6 +4,7 @@ set tabstop=4 shiftwidth=4 expandtab
 set autoindent
 
 syntax on
+colorscheme evening
 
 set wildmode=longest,list,full
 set wildmenu
