@@ -1,10 +1,8 @@
-set mouse=
-
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
 
 syntax on
-colorscheme evening
+colorscheme zaibatsu
 
 set wildmode=longest,list,full
 set wildmenu
@@ -22,3 +20,5 @@ cnoreabbrev Spl   split
 cnoreabbrev Spli  split
 cnoreabbrev Split split
 
+hi MatchParen ctermfg=black
+hi MatchParen ctermbg=white
