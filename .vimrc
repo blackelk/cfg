@@ -1,3 +1,12 @@
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre *.py,*.txt,*.html :call <SID>StripTrailingWhitespaces()
+
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
 
