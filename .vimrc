@@ -5,7 +5,7 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd BufWritePre *.py,*.txt,*.html :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre *.py,*.json,*.txt,*.html :call <SID>StripTrailingWhitespaces()
 
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
