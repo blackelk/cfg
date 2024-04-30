@@ -16,12 +16,13 @@
     s = status
 
 [color.status]
-    added = "#66ff66"
-    untracked = "#ff6666"
-    changed = "#ff6666"
+    added = "#66bb66"
+    untracked = "#bb66bb"
+    #untracked = "#bb6666"
+    changed = "#bb6666"
 
 [color.diff]
-    oldMoved = "#ff6666"
-    newMoved = "#66ff66"
-    old = "#ff6666"
-    new = "#66ff66"
+    oldMoved = "#bb6666"
+    newMoved = "#66bb66"
+    old = "#bb6666"
+    new = "#66bb66"
