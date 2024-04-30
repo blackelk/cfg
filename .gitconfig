@@ -14,3 +14,14 @@
     l = log
     m = merge
     s = status
+
+[color.status]
+    added = "#66ff66"
+    untracked = "#ff6666"
+    changed = "#ff6666"
+
+[color.diff]
+    oldMoved = "#ff6666"
+    newMoved = "#66ff66"
+    old = "#ff6666"
+    new = "#66ff66"
