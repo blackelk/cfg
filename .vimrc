@@ -16,6 +16,9 @@ colorscheme zaibatsu
 set wildmode=longest,list,full
 set wildmenu
 
+"disable Entering Ex mode. Type visual to go to Normal mode
+map Q <Nop>
+
 cnoreabbrev E e
 cnoreabbrev W w
 cnoreabbrev Q q
