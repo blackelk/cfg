@@ -34,3 +34,8 @@ cnoreabbrev Split split
 
 hi MatchParen ctermfg=black
 hi MatchParen ctermbg=white
+
+",e <some-file> opens sibling file on this buffer. ,t and ,s do the same but on a new tab/split window"
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
