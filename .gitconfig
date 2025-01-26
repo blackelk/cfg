@@ -4,6 +4,9 @@
 [github]
 	user = blackelk
 
+[pull]
+    rebase = false
+
 [alias]
     a = add
     b = branch
