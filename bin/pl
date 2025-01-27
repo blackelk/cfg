@@ -1,0 +1,58 @@
+#!/home/c/venvs/pylint/bin/python
+import re
+import subprocess
+import sys
+
+from hell import *
+
+SKIP_PATTERNS = [
+    r'(TODO|todo).*?\(fixme\)',
+    'Access to a protected member _',
+    'Catching too general exception Exception',
+    'Missing function or method docstring',
+    'Missing module docstring',
+    'Missing class docstring',
+    'Line too long',
+    'conform to snake_case naming',
+    'Unused import (C|T|M|L|I|F|PP|P|print_to_str|Config|ATTR_SHORTCUTS|COLOR_SHORTCUTS|rlcompleter|readline|termcolor|sys|pprint|inspect|code) from wildcard import',
+    'Too many nested block',
+    'Too many instance attributes',
+    'Use lazy % formatting in logging functions',
+    'Wildcard import hell',
+    'Too few public methods',
+    'Too many arguments',
+    'Too many branches',
+    'Too many local variables',
+    'Too many statements',
+    "Class '\w+' has no 'objects' member",
+    "Class '\w+' has no 'DoesNotExist' member",
+    "doesn't conform to PascalCase",
+    "Either all return statements in a function should return an expression",
+]
+
+COLOR_PATTERNS = {
+    'red': [
+        '\d: E\d{4}',
+    ],
+    'blue': [
+        re.compile(': TODO:', re.I),
+    ],
+}
+
+
+def get_line_color(line):
+    for color, color_patterns in COLOR_PATTERNS.items():
+        for color_pattern in color_patterns:
+            if re.search(color_pattern, line):
+                return color
+    return 'white'
+
+p = subprocess.run(['/home/c/venvs/pylint/bin/pylint'] + sys.argv[1:], capture_output=True)
+
+for line in p.stdout.decode().splitlines():
+    for skip_pattern in SKIP_PATTERNS:
+        if re.search(skip_pattern, line):
+            break
+    else:
+        color = get_line_color(line)
+        C(line, c=color)
