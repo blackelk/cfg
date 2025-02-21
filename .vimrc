@@ -19,18 +19,22 @@ set wildmenu
 "disable Entering Ex mode. Type visual to go to Normal mode
 map Q <Nop>
 
-cnoreabbrev E e
-cnoreabbrev W w
-cnoreabbrev Q q
+"let them work if I press them before releasing Shift
+command E e
+command W w
+command Q q
+command Wq wq
+command WQ wq
+command Set set
+command SEt set
+command Sp    split
+command Spl   split
+command Spli  split
+command Split split
+"Because of E183: User defined commands must start with an uppercase letter I have to use cnoreabbrev.
+"This means if I someday search for wQ it will search for wq, but maybe not in this life.
 cnoreabbrev wQ wq
-cnoreabbrev Wq wq
-cnoreabbrev WQ wq
-cnoreabbrev Set set
-cnoreabbrev SEt set
-cnoreabbrev Sp    split
-cnoreabbrev Spl   split
-cnoreabbrev Spli  split
-cnoreabbrev Split split
+
 
 hi MatchParen ctermfg=black
 hi MatchParen ctermbg=white
