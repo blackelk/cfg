@@ -1,11 +1,15 @@
-function! <SID>StripTrailingWhitespaces()
+function! StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
     %s/\s\+$//e
     call cursor(l, c)
-endfun
+    set nomodified
+endfunction
 
-autocmd BufWritePre *.py,*.json,*.txt,*.html :call <SID>StripTrailingWhitespaces()
+augroup StripWhitespace
+    autocmd!
+    autocmd BufWritePre *.py,*.json,*.sql,*.txt,*.html call StripTrailingWhitespaces()
+augroup END
 
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
