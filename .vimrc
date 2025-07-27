@@ -20,6 +20,8 @@ colorscheme zaibatsu
 set wildmode=longest,list,full
 set wildmenu
 
+set fileformat=unix
+
 "disable Entering Ex mode. Type visual to go to Normal mode
 map Q <Nop>
 
