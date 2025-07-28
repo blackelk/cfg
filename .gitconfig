@@ -29,6 +29,8 @@
     newMoved = "#66cc66"
     old = "#cc6666"
     new = "#66cc66"
+[init]                                                                                                                                  
+    defaultBranch = main
 
 [color.diff]
     oldMoved = "#bb6666"
