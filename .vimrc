@@ -27,10 +27,13 @@ map Q <Nop>
 
 "let them work if I press them before releasing Shift
 command E e
+cnoreabbrev Q! q!
 command W w
 command Q q
 command Wq wq
 command WQ wq
+command QW wq
+command Q1 wq
 command Set set
 command SEt set
 command Sp    split
