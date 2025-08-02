@@ -43,6 +43,7 @@ command Split split
 "Because of E183: User defined commands must start with an uppercase letter I have to use cnoreabbrev.
 "This means if I someday search for wQ it will search for wq, but maybe not in this life.
 cnoreabbrev wQ wq
+cnoreabbrev qw wq
 
 
 hi MatchParen ctermfg=black
