@@ -18,6 +18,9 @@
     m = merge
     s = status
 
+[core]
+    editor = vim
+
 [color.status]
     added = "#66cc66"
     untracked = "#cc66cc"
