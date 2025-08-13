@@ -1,11 +1,9 @@
 [user]
 	name = Constantine Parkhimovich
 	email = cparkhimovich@gmail.com
+
 [github]
 	user = blackelk
-
-[pull]
-    rebase = false
 
 [alias]
     a = add
@@ -18,25 +16,22 @@
     m = merge
     s = status
 
-[core]
-    editor = vim
-
-[color.status]
-    added = "#66cc66"
-    untracked = "#cc66cc"
-    #untracked = "#cc6666"
-    changed = "#cc6666"
-
-[color.diff]
-    oldMoved = "#cc6666"
-    newMoved = "#66cc66"
-    old = "#cc6666"
-    new = "#66cc66"
-[init]                                                                                                                                  
-    defaultBranch = main
-
 [color.diff]
     oldMoved = "#bb6666"
     newMoved = "#66bb66"
     old = "#bb6666"
     new = "#66bb66"
+
+[color.status]
+    added = "#66bb66"
+    untracked = "#bb66bb"
+    changed = "#bb6666"
+
+[core]
+    editor = vim
+
+[init]                                                                                                                                  
+    defaultBranch = main
+
+[pull]
+    rebase = false
