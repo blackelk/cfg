@@ -1,4 +1,9 @@
 #!/home/c/venvs/pylint/bin/python
+"""
+Wrapper for pylint
+Hide noisy lines.
+Colorize errors and TODOs
+"""
 import re
 import subprocess
 import sys
@@ -17,22 +22,21 @@ SKIP_PATTERNS = [
     'Unused import (C|T|M|L|I|F|PP|P|print_to_str|Config|ATTR_SHORTCUTS|COLOR_SHORTCUTS|rlcompleter|readline|termcolor|sys|pprint|inspect|code) from wildcard import',
     'Too many nested block',
     'Too many instance attributes',
-    'Use lazy % formatting in logging functions',
     'Wildcard import hell',
     'Too few public methods',
     'Too many arguments',
     'Too many branches',
     'Too many local variables',
     'Too many statements',
-    "Class '\w+' has no 'objects' member",
-    "Class '\w+' has no 'DoesNotExist' member",
+    r"Class '\w+' has no 'objects' member",
+    r"Class '\w+' has no 'DoesNotExist' member",
     "doesn't conform to PascalCase",
     "Either all return statements in a function should return an expression",
 ]
 
 COLOR_PATTERNS = {
     'red': [
-        '\d: E\d{4}',
+        r'\d: E\d{4}',
     ],
     'blue': [
         re.compile(': TODO:', re.I),
