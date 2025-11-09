@@ -11,27 +11,10 @@ import sys
 from hell import *
 
 SKIP_PATTERNS = [
-    r'(TODO|todo).*?\(fixme\)',
-    'Access to a protected member _',
-    'Catching too general exception Exception',
-    'Missing function or method docstring',
-    'Missing module docstring',
-    'Missing class docstring',
-    'Line too long',
-    'conform to snake_case naming',
     'Unused import (C|T|M|L|I|F|PP|P|print_to_str|Config|ATTR_SHORTCUTS|COLOR_SHORTCUTS|rlcompleter|readline|termcolor|sys|pprint|inspect|code) from wildcard import',
-    'Too many nested block',
-    'Too many instance attributes',
     'Wildcard import hell',
-    'Too few public methods',
-    'Too many arguments',
-    'Too many branches',
-    'Too many local variables',
-    'Too many statements',
     r"Class '\w+' has no 'objects' member",
     r"Class '\w+' has no 'DoesNotExist' member",
-    "doesn't conform to PascalCase",
-    "Either all return statements in a function should return an expression",
 ]
 
 COLOR_PATTERNS = {
@@ -51,7 +34,15 @@ def get_line_color(line):
                 return color
     return 'white'
 
-p = subprocess.run(['/home/c/venvs/pylint/bin/pylint'] + sys.argv[1:], capture_output=True)
+
+args = sys.argv[1:].copy()
+
+if '--strict' in args:
+    args.remove('--strict')
+    args.append('--rcfile=/dev/null')
+
+p = subprocess.run(['/home/c/venvs/pylint/bin/pylint'] + args,
+                   capture_output=True)
 
 for line in p.stdout.decode().splitlines():
     for skip_pattern in SKIP_PATTERNS:
