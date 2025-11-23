@@ -37,7 +37,9 @@ def get_line_color(line):
 
 args = sys.argv[1:].copy()
 
+strict = False
 if '--strict' in args:
+    strict = True
     args.remove('--strict')
     args.append('--rcfile=/dev/null')
 
@@ -45,9 +47,10 @@ p = subprocess.run(['/home/c/venvs/pylint/bin/pylint'] + args,
                    capture_output=True)
 
 for line in p.stdout.decode().splitlines():
-    for skip_pattern in SKIP_PATTERNS:
-        if re.search(skip_pattern, line):
-            break
+    if not strict:
+        for skip_pattern in SKIP_PATTERNS:
+            if re.search(skip_pattern, line):
+                break
     else:
         color = get_line_color(line)
         C(line, c=color)
