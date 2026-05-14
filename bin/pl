@@ -44,13 +44,10 @@ if '--strict' in args:
     args.append('--rcfile=/dev/null')
 
 p = subprocess.run(['/home/c/venvs/pylint/bin/pylint'] + args,
-                   capture_output=True)
+                   capture_output = True)
 
 for line in p.stdout.decode().splitlines():
-    if not strict:
-        for skip_pattern in SKIP_PATTERNS:
-            if re.search(skip_pattern, line):
-                break
-    else:
+    if strict or not any(re.search(skip_pattern, line)
+                         for skip_pattern in SKIP_PATTERNS):
         color = get_line_color(line)
         C(line, c=color)
