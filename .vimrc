@@ -8,7 +8,7 @@ endfunction
 
 augroup StripWhitespace
     autocmd!
-    autocmd BufWritePre *.py,*.json,*.sql,*.txt,*.html call StripTrailingWhitespaces()
+    autocmd BufWritePre *.py,*.json,*.sql,*.txt,*.html,*.md,*.toml call StripTrailingWhitespaces()
 augroup END
 
 set tabstop=4 shiftwidth=4 expandtab
