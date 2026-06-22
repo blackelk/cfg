@@ -1,14 +1,3 @@
-[user]
-    name = Constantine Parkhimovich
-    email = cparkhimovich@gmail.com
-    signingkey = 29DAE68AD3484DBB84CCBAFC8DF1821B515CA8A2
-
-[commit]
-    gpgsign = true
-
-[github]
-    user = blackelk
-
 [alias]
     a = add
     b = branch
@@ -31,11 +20,21 @@
     untracked = "#bb66bb"
     changed = "#bb6666"
 
+[commit]
+    gpgsign = true
+
 [core]
     editor = vim
+
+[github]
+    user = blackelk
 
 [init]                                                                                                                                  
     defaultBranch = main
 
+[user]
+    name = Constantine Parkhimovich
+    email = cparkhimovich@gmail.com
+    signingkey = 29DAE68AD3484DBB84CCBAFC8DF1821B515CA8A2
 [pull]
     rebase = true
