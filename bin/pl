@@ -11,8 +11,6 @@ import sys
 from hell import *
 
 SKIP_PATTERNS = [
-    'Unused import (C|T|M|L|I|F|PP|P|print_to_str|Config|ATTR_SHORTCUTS|COLOR_SHORTCUTS|rlcompleter|readline|termcolor|sys|pprint|inspect|code) from wildcard import',
-    'Wildcard import hell',
     r"Class '\w+' has no 'objects' member",
     r"Class '\w+' has no 'DoesNotExist' member",
 ]
