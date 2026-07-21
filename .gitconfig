@@ -8,6 +8,7 @@
     l = log
     m = merge
     s = status
+    sw = switch
 
 [color.diff]
     oldMoved = "#bb6666"
