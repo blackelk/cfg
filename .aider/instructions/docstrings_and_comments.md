@@ -1,38 +1,81 @@
-# Writing docstrings and comments
+# Python docstrings and comments
 
-## Semantic line breaks
+This rule applies to every generated or modified Python docstring
+and standalone prose comment.
 
--   Use semantic line breaks.
-    Lines are broken by meaning,
-    often at punctuation
-    and conjunctions.
--   The repository contains older docstrings that are width-wrapped.
-    Do not imitate them.
-    This instruction overrides surrounding code style.
--   Keep a one-line docstring's summary on the opening line;
-    break only multi-clause or multi-sentence docstrings.
--   Do not apply semantic line breaks to machine-directed
-    or format-fixed comments —
-    tool directives such as noqa,
-    type: ignore,
-    linter/checker pragmas, etc.
--   Trailing (end-of-line) comments are single-line by nature;
-    do not attempt to break them.
-    If a trailing comment is long enough to want breaking,
-    move it to a standalone comment above the code
-    and apply semantic line breaks there.
+## Use semantic line breaks.
+Never width-wrap prose.
 
-## Docstrings
+Bad:
 
-A docstring layers PEP 257 / D205 structure on top of semantic line breaks:
-a short imperative summary on exactly one line,
-then a blank line,
-then an optional body.
-Keep the summary to one line —
-if it runs long,
-shorten the wording rather than wrap it.
-Apply semantic line breaks within the body only,
-never across the summary,
-and never fold the summary into the first body sentence:
-the blank line is load-bearing for tooling
-(ruff D-rules, IDE hover, Sphinx).
+```python
+def load_configuration():
+    """Load configuration from disk and validate it before returning the
+    resulting configuration object to the caller.
+    """
+```
+
+Good:
+
+```
+def load_configuration():
+    """Load and validate the configuration.
+
+    Load the configuration from disk,
+    validate its contents,
+    and return the resulting object to the caller.
+    """
+```
+
+Bad:
+
+```python
+# Retry the request because the remote service may temporarily reject the
+# connection while it is restarting.
+```
+
+Good:
+
+```python
+# Retry the request
+# because the remote service may temporarily reject the connection
+# while it is restarting.
+```
+
+For a longer docstring:
+
+-   Write a short one-line imperative summary.
+-   Add a blank line.
+-   Write the body using semantic line breaks.
+
+Do not apply this rule to:
+
+-   noqa
+-   type: ignore
+-   linter or checker directives
+-   format-fixed comments
+-   end-of-line comments
+
+## Write documentation for future readers, not for the current task
+
+Write documentation
+as though a developer encounters the code months later
+without access to the conversation that produced it.
+
+## Document only this unit's responsibilities
+
+Docstrings and comments must describe the behavior,
+contract,
+and responsibilities of the current module,
+class,
+function,
+or test.
+
+Do not document implementation details
+or behavior that belong to callers,
+callees,
+dependency injection,
+service containers,
+framework wiring,
+or application composition
+unless the current unit's public contract directly depends on them.
