@@ -1,5 +1,5 @@
 model: anthropic/claude-opus-4-8
-model-settings-file: ~/.aider.model.settings.yml
+model-settings-file: ~/.aider/model_settings.yml
 
 thinking-tokens: 0
 map-tokens: 2048
@@ -15,9 +15,11 @@ gitignore: false
 auto-commits: false
 dirty-commits: false
 
+assistant-output-color: "#0088ff"
+pretty: true
+
 read:
     - ~/.aider/instructions/behaviour.md
-    - ~/.aider/instructions/edit_authorization.md
     - ~/.aider/instructions/markdown.md
     - ~/.aider/instructions/docstrings_and_comments.md
     - ~/.aider/instructions/commit_messages.md
