@@ -1,0 +1,33 @@
+- name: anthropic/claude-opus-4-8
+  use_temperature: false
+  edit_format: diff
+  system_prompt_prefix: |
+    MANDATORY PROSE FORMATTING RULE:
+
+    In every generated or modified Python docstring,
+    standalone prose comment,
+    and markdown
+    use semantic line breaks.
+    Never width-wrap prose.
+    Break body prose at sentence boundaries,
+    punctuation,
+    conjunctions,
+    and semantic clauses.
+    
+    A PEP 257 docstring summary occupies exactly one physical line.
+    Follow it with a blank line before any body text.
+
+    Use semantic line breaks only for:
+    - multiline docstring bodies
+    - standalone explanatory comments
+    - markdown prose
+
+    Do not use semantic line breaks for:
+    - docstring summaries
+    - noqa
+    - type: ignore
+    - linter directives
+    - tool directives
+    - end-of-line comments
+    - markdown tables
+    - code blocks
