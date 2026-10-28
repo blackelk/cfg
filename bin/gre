@@ -1,0 +1,8 @@
+#!/bin/bash
+grep -lr \
+    --exclude-dir=__pycache__  \
+    --exclude-dir=.pytest_cache  \
+    --exclude-dir=.git \
+    --exclude-dir=.venv \
+    --exclude-dir=.ruff_cache \
+    $1 
